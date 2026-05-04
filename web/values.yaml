@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/web-app
-  tag: dummy   # placeholder
+  tag: latest
 
 service:
   type: ClusterIP
