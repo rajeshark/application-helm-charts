@@ -1,11 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
 spec:
-  type: ClusterIP   # ✅ CHANGE THIS
-  selector:
-    app: web
+  type: {{ .Values.service.type }}
   ports:
-    - port: 80
-      targetPort: 8080
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetPort }}
+    protocol: TCP
+    name: http
+  selector:
+    app: {{ .Chart.Name }}
