@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: web
 spec:
-  type: NodePort   # or LoadBalancer
+  type: ClusterIP   # ✅ CHANGE THIS
   selector:
     app: web
   ports:
     - port: 80
       targetPort: 8080
-      nodePort: 30007   
