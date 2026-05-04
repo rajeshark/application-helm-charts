@@ -2,10 +2,10 @@ image:
   repository: postgres
   tag: "12.4-alpine"
 
+service:
+  port: 5432
+
 env:
-  - name: POSTGRES_DB
-    value: "postgres"
-  - name: POSTGRES_USER
-    value: "postgres"
-  - name: POSTGRES_PASSWORD
-    value: "postgres"
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
