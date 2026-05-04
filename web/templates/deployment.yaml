@@ -13,12 +13,12 @@ spec:
     metadata:
       labels:
         app: web
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
     spec:
       containers:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8080
+          env:
+            - name: VUE_APP_API_URL
+              value: "http://api:8080"
