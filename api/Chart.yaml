@@ -1,3 +1,9 @@
-apiVersion: v2
-name: api
-version: 0.1.0
+replicaCount: 2
+
+image:
+  repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/api-app
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 3000
