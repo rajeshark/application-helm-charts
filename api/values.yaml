@@ -1,6 +1,9 @@
+replicaCount: 1
+
 image:
   repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/api-app
-  tag: "4df6cf8-1"
+  tag: dummy
 
 service:
+  type: ClusterIP
   port: 8080
