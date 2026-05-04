@@ -17,10 +17,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           env:
             - name: POSTGRES_DB
-              value: "postgres"
+              value: "{{ .Values.env.POSTGRES_DB }}"
             - name: POSTGRES_USER
-              value: "postgres"
+              value: "{{ .Values.env.POSTGRES_USER }}"
             - name: POSTGRES_PASSWORD
-              value: "postgres"
+              value: "{{ .Values.env.POSTGRES_PASSWORD }}"
           ports:
             - containerPort: 5432
