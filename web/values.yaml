@@ -1,18 +1,12 @@
-replicaCount: 2
-
+replicaCount: 1
 image:
-  repository: <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/web-app
+  repository: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/web-app
   pullPolicy: Always
   tag: "latest"
-
 service:
   type: ClusterIP
   port: 80
-  targetPort: 3000
-
-ingress:
-  enabled: false
-
+  targetPort: 8080
 resources:
   limits:
     cpu: 500m
@@ -20,9 +14,6 @@ resources:
   requests:
     cpu: 250m
     memory: 256Mi
-
-# For Prometheus monitoring
-monitoring:
-  enabled: true
-  port: 3000
-  path: /metrics
+env:
+  - name: VUE_APP_API_URL
+    value: "http://api-app:8080"
