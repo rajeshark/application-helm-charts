@@ -2,8 +2,7 @@ replicaCount: 1
 
 image:
   repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/web-app
-  tag: 488dca8-1-dev   # change for prod later
+  tag: 488dca8-1-dev
 
 service:
-  type: ClusterIP
   port: 80
