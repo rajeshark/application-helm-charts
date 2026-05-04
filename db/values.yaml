@@ -1,21 +1,3 @@
-replicaCount: 1
 image:
   repository: postgres
-  tag: "14-alpine"
-  pullPolicy: IfNotPresent
-service:
-  type: ClusterIP
-  port: 5432
-persistence:
-  enabled: true
-  size: 10Gi
-resources:
-  limits:
-    cpu: 500m
-    memory: 512Mi
-  requests:
-    cpu: 250m
-    memory: 256Mi
-database:
-  name: votingdb
-  user: postgres
+  tag: "13"
