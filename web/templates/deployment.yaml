@@ -2,8 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
+  labels:
+    app: web
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: web=539609142335.dkr.ecr.ap-south-1.amazonaws.com/web-app
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: web
@@ -16,4 +20,4 @@ spec:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 8080
+            - containerPort: 80
