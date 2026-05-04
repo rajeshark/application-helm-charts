@@ -1,15 +1,12 @@
-replicaCount: 2
-
+replicaCount: 1
 image:
-  repository: <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/api-app
+  repository: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/api-app
   pullPolicy: Always
   tag: "latest"
-
 service:
   type: ClusterIP
   port: 8080
   targetPort: 8080
-
 resources:
   limits:
     cpu: 500m
@@ -17,13 +14,8 @@ resources:
   requests:
     cpu: 250m
     memory: 256Mi
-
-database:
+postgresql:
   host: postgres
   port: 5432
-  name: appdb
-
-monitoring:
-  enabled: true
-  port: 8080
-  path: /metrics
+  database: votingdb
+  user: postgres
