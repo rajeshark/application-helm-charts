@@ -5,5 +5,4 @@ image:
   tag: f96fad3-1-dev
 
 service:
-  type: ClusterIP
   port: 8080
