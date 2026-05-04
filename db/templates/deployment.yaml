@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: db
-  labels:
-    app: db
 spec:
   replicas: 1
   selector:
@@ -19,6 +17,3 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 5432
-          envFrom:
-            - secretRef:
-                name: db-secret
