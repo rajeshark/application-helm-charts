@@ -1,0 +1,11 @@
+image:
+  repository: postgres
+  tag: "12.4-alpine"
+
+env:
+  - name: POSTGRES_DB
+    value: "postgres"
+  - name: POSTGRES_USER
+    value: "postgres"
+  - name: POSTGRES_PASSWORD
+    value: "postgres"
