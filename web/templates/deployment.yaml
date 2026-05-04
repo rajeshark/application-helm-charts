@@ -18,7 +18,5 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: NODE_OPTIONS
-              value: "--openssl-legacy-provider"
             - name: VUE_APP_API_URL
               value: "http://api:8080"
