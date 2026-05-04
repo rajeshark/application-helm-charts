@@ -1,9 +1,28 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
-  repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/web-app
-  tag: latest
+  repository: <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/web-app
+  pullPolicy: Always
+  tag: "latest"
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# For Prometheus monitoring
+monitoring:
+  enabled: true
+  port: 3000
+  path: /metrics
