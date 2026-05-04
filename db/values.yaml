@@ -1,6 +1,11 @@
+replicaCount: 1
+
 image:
   repository: postgres
-  tag: "12.4-alpine"
+  tag: "13"
 
 service:
   port: 5432
+
+env:
+  POSTGRES_DB: mydb
