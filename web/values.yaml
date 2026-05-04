@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/web-app
+  repository: 539609142335.dkr.ecr.us-east-1.amazonaws.com/web-app
   pullPolicy: Always
   tag: "latest"
 service:
