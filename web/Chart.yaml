@@ -1,6 +1,3 @@
 apiVersion: v2
-name: web-app
-description: Vue.js Frontend
-type: application
+name: web
 version: 0.1.0
-appVersion: "1.0.0"
