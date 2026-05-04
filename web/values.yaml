@@ -1,6 +1,9 @@
+replicaCount: 2
+
 image:
   repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/web-app
-  tag: "4df6cf8-1"
+  tag: latest
 
 service:
-  port: 8080
+  type: ClusterIP
+  port: 80
