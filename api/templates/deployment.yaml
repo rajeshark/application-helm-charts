@@ -42,3 +42,5 @@ spec:
               value: "none"
             - name: OTEL_METRICS_EXPORTER
               value: "none"
+            - name: OTEL_PYTHON_DISABLED_INSTRUMENTATIONS
+              value: "system_metrics"
