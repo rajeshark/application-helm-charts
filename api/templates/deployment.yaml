@@ -6,17 +6,23 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: api-app
   template:
     metadata:
       labels:
-        app: api
+        app: api-app
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "false"
+        instrumentation.opentelemetry.io/inject-nodejs: "false"
+        instrumentation.opentelemetry.io/inject-python: "false"
+        instrumentation.opentelemetry.io/inject-dotnet: "false"
     spec:
       containers:
         - name: api
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8080
+
           env:
             - name: DB_HOST
               value: postgres-service
@@ -28,5 +34,12 @@ spec:
               value: apppass
             - name: DB_NAME
               value: appdb
+
+            # 🔥 REQUIRED (THIS WAS MISSING)
+            - name: REDIS_HOST
+              value: redis
+            - name: REDIS_PORT
+              value: "6379"
+
       imagePullSecrets:
         - name: ecr-secret
