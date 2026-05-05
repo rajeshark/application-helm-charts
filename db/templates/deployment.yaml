@@ -1,35 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: postgres
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: postgres
   template:
     metadata:
       labels:
-        app: mysql
+        app: postgres
     spec:
       containers:
-        - name: mysql
+        - name: postgres
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 3306
+            - containerPort: 5432
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: "{{ .Values.mysql.rootPassword }}"
-            - name: MYSQL_DATABASE
-              value: "{{ .Values.mysql.database }}"
-            - name: MYSQL_USER
-              value: "{{ .Values.mysql.user }}"
-            - name: MYSQL_PASSWORD
-              value: "{{ .Values.mysql.password }}"
+            - name: POSTGRES_DB
+              value: "{{ .Values.postgres.db }}"
+            - name: POSTGRES_USER
+              value: "{{ .Values.postgres.user }}"
+            - name: POSTGRES_PASSWORD
+              value: "{{ .Values.postgres.password }}"
           volumeMounts:
             - name: data
-              mountPath: /var/lib/mysql
+              mountPath: /var/lib/postgresql/data
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: mysql-pvc
+            claimName: postgres-pvc
