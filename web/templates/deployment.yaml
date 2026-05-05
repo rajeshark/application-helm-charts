@@ -19,7 +19,7 @@ spec:
             - containerPort: 8080
           env:
             - name: VUE_APP_API_URL
-              value: "http://api:8080"
+              value: "http://a0e50dbddb9b143bb8afd5b0fe1f52b9-1030414099.ap-south-1.elb.amazonaws.com"
             - name: OTEL_TRACES_EXPORTER
               value: "none"
             - name: OTEL_METRICS_EXPORTER
