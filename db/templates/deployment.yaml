@@ -29,11 +29,4 @@ spec:
               value: appuser
             - name: POSTGRES_PASSWORD
               value: apppass
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql/data
-
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: postgres-pvc
+          
