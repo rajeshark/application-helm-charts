@@ -7,14 +7,20 @@ spec:
   selector:
     matchLabels:
       app: api
+
   template:
     metadata:
       labels:
         app: api
+      annotations:
+        # 🔥 IMPORTANT: Disable OpenTelemetry auto injection
+        instrumentation.opentelemetry.io/inject-python: "false"
+
     spec:
       containers:
         - name: api
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
           ports:
             - containerPort: 8080
 
@@ -37,7 +43,7 @@ spec:
             - name: POSTGRES_DB
               value: "votes"
 
-            # 🔹 Disable telemetry (important)
+            # 🔹 Disable telemetry (extra safety)
             - name: OTEL_TRACES_EXPORTER
               value: "none"
             - name: OTEL_METRICS_EXPORTER
