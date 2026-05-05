@@ -1,3 +1,4 @@
 apiVersion: v2
 name: web
+type: application
 version: 0.1.0
