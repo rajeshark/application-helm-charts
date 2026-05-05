@@ -2,4 +2,4 @@ apiVersion: v2
 name: db
 type: application
 version: 0.1.0
-appVersion: "5.7"
+appVersion: "15"
