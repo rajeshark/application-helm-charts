@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/api-app
+  repository: <your-account-id>.dkr.ecr.ap-south-1.amazonaws.com/api-app
   tag: f96fad3-1-dev
+  pullPolicy: Always
 
-service:
-  port: 8080
+containerPort: 8080
