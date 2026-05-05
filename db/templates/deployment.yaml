@@ -11,22 +11,28 @@ spec:
     metadata:
       labels:
         app: postgres
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "false"
+        instrumentation.opentelemetry.io/inject-nodejs: "false"
+        instrumentation.opentelemetry.io/inject-python: "false"
+        instrumentation.opentelemetry.io/inject-dotnet: "false"
     spec:
       containers:
         - name: postgres
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: postgres:15
           ports:
             - containerPort: 5432
           env:
             - name: POSTGRES_DB
-              value: "{{ .Values.postgres.db }}"
+              value: appdb
             - name: POSTGRES_USER
-              value: "{{ .Values.postgres.user }}"
+              value: appuser
             - name: POSTGRES_PASSWORD
-              value: "{{ .Values.postgres.password }}"
+              value: apppass
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
+
       volumes:
         - name: data
           persistentVolumeClaim:
