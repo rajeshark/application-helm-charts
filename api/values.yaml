@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: <your-account-id>.dkr.ecr.ap-south-1.amazonaws.com/api-app
+  repository: 539609142335.dkr.ecr.ap-south-1.amazonaws.com/api-app
   tag: f96fad3-1-dev
   pullPolicy: Always
 
